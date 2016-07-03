@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE web-app
   PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
@@ -14,6 +14,10 @@
 	<servlet>
         <servlet-name>TestServlet</servlet-name>
         <servlet-class>test.TestServlet</servlet-class>
+		<init-param>
+			<param-name>javaEncoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
     </servlet>
     <!-- デフォルトのサーブレットマッピング -->
     <servlet-mapping>

@@ -29,9 +29,13 @@ public class ControllerFactory {
 		AbsController controller = null;
 
 		if ("/webApp1/servlet/TestServlet".equals(requestUrl)) {
+
 			controller = new UserInputController();
+
 		} else {
+
 			controller = new UserInputController();
+
 		}
 
 		return controller;

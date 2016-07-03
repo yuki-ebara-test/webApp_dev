@@ -1,5 +1,6 @@
 package test;
 
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,6 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public abstract class AbsController {
+
+	private static final String REQUEST_BYTE_DECODE = "ISO_8859_1";
+
+	private static final String REQUEST_CHAR_CODE = "UTF-8";
 
 	/**
 	 *
@@ -33,17 +38,34 @@ public abstract class AbsController {
 	/**
 	 *
 	 */
-	abstract protected String process (Map<String, Object> requeestMap);
+	abstract protected String process (Map<String, String> requeestMap);
 
 	/**
 	 *
 	 * @param request
 	 * @return
 	 */
-	private Map<String, Object> createRequeestMap (HttpServletRequest request) {
+	private Map<String, String> createRequeestMap (HttpServletRequest request) {
 
-		return new HashMap<>();
+		try {
+			Map<String, String> map = new HashMap<>();
 
+			Enumeration<String> paramNames = request.getParameterNames();
+
+			while (paramNames.hasMoreElements()) {
+
+				String paramName = paramNames.nextElement();
+
+				map.put(paramName, new String(request.getParameter(paramName).getBytes(REQUEST_BYTE_DECODE), REQUEST_CHAR_CODE));
+
+			}
+
+			System.out.println(map);
+
+			return map;
+		}catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

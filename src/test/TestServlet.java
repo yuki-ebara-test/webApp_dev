@@ -11,11 +11,13 @@ public class TestServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
+		System.out.println("Post");
 		this.doProcess(request, response);
     }
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Get");
 		this.doProcess(request, response);
 	}
 
