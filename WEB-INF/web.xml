@@ -13,7 +13,7 @@
     </description>
 	<servlet>
         <servlet-name>TestServlet</servlet-name>
-        <servlet-class>test.TestServlet</servlet-class>
+        <servlet-class>web.TestServlet</servlet-class>
 		<init-param>
 			<param-name>javaEncoding</param-name>
 			<param-value>UTF-8</param-value>

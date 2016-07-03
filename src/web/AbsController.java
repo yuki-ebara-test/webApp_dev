@@ -1,4 +1,4 @@
-package test;
+package web;
 
 import java.util.Enumeration;
 import java.util.HashMap;
